@@ -142,8 +142,9 @@
         </section>
 
 
-        <section class="flex flex-col justify-center items-center gap-5 md:gap-8 md:mb-6 max-w-2xl m-auto sweaterFont text-white">
-            <p id="numBingo" class="hidden text-center text-6xl md:text-8xl">32</p>
+        <section
+            class="flex flex-col justify-center items-center gap-5 md:gap-8 md:mb-6 max-w-2xl m-auto sweaterFont text-white">
+            <p id="numBingo" class="hidden text-center text-6xl md:text-8xl">Bingo</p>
             <button id="btnVolverAJugar"
                 class=" hidden bg-red-500 hover:bg-red-600 transition-all tracking-wider px-3 py-2 border-2 border-black rounded-lg text-lg md:text-2xl shadow-2xl shadow-black hover:shadow-3xl">
                 Volver a jugar
@@ -159,7 +160,8 @@
                 style="background-image: url(/img/bkg2.png);">
                 <article class="z-10 flex flex-col justify-center items-center text-white text-3xl sweaterFont gap-5">
                     <figure>
-                        <img id="imgAvisoLinea" class="w-24 h-24" src="img/icon-snowman.png" alt="Imagen del jugador que canta linea">
+                        <img id="imgAvisoLinea" class="w-24 h-24" src="img/icon-snowman.png"
+                            alt="Imagen del jugador que canta linea">
                     </figure>
                     <p class="text-center m-4">El jugador <span id="nombreAvisoLinea"
                             class="text-blue-500">Álvaro</span> ha
@@ -172,7 +174,8 @@
                 style="background-image: url(/img/bkg2.png);">
                 <article class="z-10 flex flex-col justify-center items-center text-white text-3xl sweaterFont gap-2">
                     <figure>
-                        <img id="imgAvisoBingo" class="w-24 h-24" src="img/icon-snowman.png" alt="Imagen del jugador que canta bingo">
+                        <img id="imgAvisoBingo" class="w-24 h-24" src="img/icon-snowman.png"
+                            alt="Imagen del jugador que canta bingo">
                     </figure>
                     <p class="text-center m-4">El jugador <span id="nombreAvisoBingo"
                             class="text-blue-500">Álvaro</span> ha
@@ -517,7 +520,7 @@
                 btnVolverAJugar.addEventListener('click', function () {
                     window.location.reload();
                 });
-              
+
             }, 3000);
         }
 
@@ -772,14 +775,14 @@
             var i = 0;
             var active = false;
 
-            // Crear un observador de mutaciones
-            var observer = new MutationObserver(function (mutations) {
-                // Cuando el DOM cambia, recalcula el ancho y la altura
+            // Crear un observador de redimensionamiento
+            var resizeObserver = new ResizeObserver(function (entries) {
+                // Cuando el tamaño del elemento cambia, recalcula el ancho y la altura
                 onResize();
             });
 
             // Configurar el observador para observar todo el documento
-            observer.observe(document.body, { childList: true, subtree: true });
+            resizeObserver.observe(document.body, { childList: true, subtree: true });
 
             // Función para recalcular el ancho y la altura
             function onResize() {
