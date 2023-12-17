@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Bingo Js</title>
+</head>
+
+<body class="sky" style="background-image: url(/img/bkg2.png);">
+
+    <!-- Cabecera responsive de la página -->
+    <header class="cabecera h-[20vh]">
+        <!-- Logo usuario polkadev -->
+        <img src="../img/polkadev-logo-marciano.PNG" class="logoUsuario w-44 lg:w-52 h-auto pb-2 md:pb-3 lg:pb-4"
+            alt="Logo de polkadev" />
+
+        <!-- Menú con los iconos para las redes sociales y su enlace -->
+        <div id="menuSocial" class="md:text-sm lg:text-3xl hidden md:visible">
+            <a class="logo-redes" href="https://github.com/alvarob27" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24"
+                    height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                        d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                    </path>
+                </svg>
+            </a>
+            <a class="logo-redes" href="https://www.linkedin.com/in/%C3%A1lvaro-b%C3%A1rcena-lasala-07361b191/"
+                target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24"
+                    height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
+                    <path d="M8 11l0 5"></path>
+                    <path d="M8 8l0 .01"></path>
+                    <path d="M12 16l0 -5"></path>
+                    <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
+                </svg>
+            </a>
+        </div>
+
+    </header>
+
+    <main class="pb-10 relative">
+        <section class="relative sweaterFont min-h-screen -z-20 mb-44 md:mb-24">
+            <!-- Sección principal con el titulo del Bingo y las imagenes -->
+
+            <h1 class="text-left md:text-center px-5 md:px-0 text-5xl lg:text-8xl pt-32 lg:pt-40 xl:pt-10 text-white">
+                Bingo Js
+            </h1>
+
+            <p class="text-left md:text-center px-5 md:px-0 text-white text-4xl pt-10">
+                ¡Celebra la magia de la <span class="text-red-400">Navidad</span> con cada <span
+                    class="text-green-400">número</span>!
+            </p>
+
+            <!-- Icono del reno -->
+            <div class="absolute pl-4 md:p-14 top-0 left-0 -z-10 sweaterFont">
+                <p class="text-8xl text-white">&#x00BB;</p>
+            </div>
+
+            <!-- Icono de la estrella -->
+            <div class="absolute m-4 top-6 right-0 md:top-14 md:right-6 -z-10 md:rotate-12">
+                <p class="text-8xl text-white">&#x002A;</p>
+            </div>
+
+            <!-- Icono del snowman -->
+            <div class="absolute pr-6 md:p-10 -bottom-24 right-0 md:bottom-0 md:right-0 -z-10">
+                <img class="w-28 h-24 md:h-32 md:w-36" src="img/snowman.png" alt="Imagen Snowman"
+                    style="filter: invert(1);" />
+            </div>
+
+            <!-- Icono del arbol -->
+            <div class="absolute pl-6 md:p-10 -bottom-24 left-0 md:bottom-0 md:left-0 -z-10">
+                <img class="w-28 h-28 md:h-36 md:w-36" src="img/xmas-tree.png" alt="Imagen Arbol"
+                    style="filter: invert(1);" />
+            </div>
+
+            <!-- Icono baston de caramelo -->
+            <div class="absolute md:p-10 top-[80%] left-[40%] md:top-[55%] md:left-[50%] -z-10 md:rotate-12">
+                <img class="h-28 w-16" src="img/baston-caramelo.png" alt="Imagen Baston" style="filter: invert(1);" />
+            </div>
+
+            <!-- Icono del regalo -->
+            <div
+                class="absolute md:p-10 top-[65%] left-[65%] md:top-[40%] md:left-[65%] xl:top-[35%] sweaterFont -z-10">
+                <p class="text-8xl text-white">&#xA9;</p>
+            </div>
+
+            <!-- Icono copo de nieve -->
+            <div
+                class="absolute md:p-10 top-[65%] right-[65%] md:top-[40%] md:right-[65%] xl:top-[35%] sweaterFont -z-10 md:rotate-12">
+                <p class="text-8xl text-white">&lt;</p>
+            </div>
+        </section>
+
+
+        <section id="seccionJugar" class="text-white text-3xl sweaterFont flex flex-col gap-10 px-5 md:px-0">
+
+            <h2 class="text-center lg:text-6xl">¿ Cómo se juega ?</h2>
+
+            <article class="flex flex-col justify-center md:items-center gap-10 text-2xl">
+
+                <p>1. Indica el número de jugadores ( máx 4 )</p>
+
+                <select name="selectJugadores" id="selectJugadores"
+                    class="text-white bg-red-500 hover:bg-red-600 text-base md:text-2xl rounded-lg shadow-2xl shadow-black py-2 px-4">
+                    <option value="1">1 jugador</option>
+                    <option value="2">2 jugadores</option>
+                    <option value="3">3 jugadores</option>
+                    <option value="4">4 jugadores</option>
+                </select>
+
+                <section class="pJugadores flex flex-col justify-center items-center gap-5">
+                    <p>2. Escoge el nombre de cada jugador</p>
+                    <section class="flex justify-center items-center gap-3">
+                        <input type="text" name="nombreJugador1" id="nombreJugador1" placeholder="Nombre jugador 1"
+                            class="text-white placeholder:text-white bg-green-500 text-base md:text-xl px-2 py-2 rounded-lg">
+                        <p class="text-yellow-300 text-lg">Jug. 1</p>
+                    </section>
+                </section>
+
+                <p class="text-left">3. ¡A jugar!</p>
+
+            </article>
+
+            <article class="flex justify-center items-center gap-5">
+                <button id="btnEmpezar"
+                    class="bg-red-500 hover:bg-red-600 transition-all tracking-wider text-white px-2 py-2 border-2 border-red-500 rounded-lg text-lg md:text-2xl shadow-2xl shadow-black hover:shadow-3xl">
+                    Empezar!
+                </button>
+            </article>
+
+        </section>
+
+
+        <section class="flex flex-col justify-center items-center gap-5 md:gap-8 md:mb-6 max-w-2xl m-auto sweaterFont text-white">
+            <p id="numBingo" class="hidden text-center text-6xl md:text-8xl">32</p>
+            <button id="btnVolverAJugar"
+                class=" hidden bg-red-500 hover:bg-red-600 transition-all tracking-wider px-3 py-2 border-2 border-black rounded-lg text-lg md:text-2xl shadow-2xl shadow-black hover:shadow-3xl">
+                Volver a jugar
+            </button>
+        </section>
+
+        <section id="contenedorCartones"
+            class="hidden relative flex-col flex-wrap md:flex-row md:gap-8 xl:gap-16 justify-center items-center">
+
+
+            <section id="avisoLinea"
+                class="invisible absolute flex flex-col justify-center items-center inset-0 m-auto z-10 border-4 border-blue-500 max-w-lg h-[400px] rounded-lg"
+                style="background-image: url(/img/bkg2.png);">
+                <article class="z-10 flex flex-col justify-center items-center text-white text-3xl sweaterFont gap-5">
+                    <figure>
+                        <img id="imgAvisoLinea" class="w-24 h-24" src="img/icon-snowman.png" alt="Imagen del jugador que canta linea">
+                    </figure>
+                    <p class="text-center m-4">El jugador <span id="nombreAvisoLinea"
+                            class="text-blue-500">Álvaro</span> ha
+                        cantado línea!</p>
+                </article>
+            </section>
+
+            <section id="avisoBingo"
+                class="invisible absolute flex flex-col justify-center items-center inset-0 m-auto z-10 border-4 border-blue-500 max-w-lg h-[400px] rounded-lg"
+                style="background-image: url(/img/bkg2.png);">
+                <article class="z-10 flex flex-col justify-center items-center text-white text-3xl sweaterFont gap-2">
+                    <figure>
+                        <img id="imgAvisoBingo" class="w-24 h-24" src="img/icon-snowman.png" alt="Imagen del jugador que canta bingo">
+                    </figure>
+                    <p class="text-center m-4">El jugador <span id="nombreAvisoBingo"
+                            class="text-blue-500">Álvaro</span> ha
+                        cantado bingo!</p>
+                    <button id="btnVolverAInicioBingo"
+                        class="bg-white hover:bg-slate-300 text-black transition-all tracking-wider px-3 py-2 border-2 border-black rounded-lg text-lg shadow-2xl shadow-black hover:shadow-3xl">
+                        Volver a jugar
+                    </button>
+                </article>
+            </section>
+
+
+        </section>
+
+    </main>
+
+
+
+
+    <footer class="h-[20vh]">
+        <article
+            class="flex flex-col h-full justify-center items-center gap-5 md:grid md:grid-cols-3 md:items-center md:justify-items-center text-white">
+            <!-- Logo usuario polkadev -->
+            <img src="../img/polkadev-logo-marciano.PNG" class="logoUsuario w-32 lg:w-44 h-auto pb-2 md:pb-3 lg:pb-4"
+                alt="Logo de polkadev" />
+            <p class="text-center text-white text-xs geist-light lg:text-base">
+                © Copyright 2023 Polkadev
+            </p>
+            <!-- Menú con los iconos para las redes sociales y su enlace -->
+            <div id="menuSocial" class="md:text-sm lg:text-3xl hidden md:flex md:gap-2">
+                <a class="logo-redes" href="https://github.com/alvarob27" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24"
+                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path
+                            d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                        </path>
+                    </svg>
+                </a>
+                <a class="logo-redes" href="https://www.linkedin.com/in/%C3%A1lvaro-b%C3%A1rcena-lasala-07361b191/"
+                    target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin"
+                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z">
+                        </path>
+                        <path d="M8 11l0 5"></path>
+                        <path d="M8 8l0 .01"></path>
+                        <path d="M12 16l0 -5"></path>
+                        <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
+                    </svg>
+                </a>
+            </div>
+        </article>
+    </footer>
+
+
+    <script>
+
+        // CREAR INPUTS DE NOMBRE DE JUGADORES------------------------------------------------------
+
+        // Obténgo el elemento select donde el usuario selecciona el número de jugadores
+        let selectJugadores = document.getElementById('selectJugadores');
+
+        // Obténgo el elemento donde se van a añadir los inputs de nombre de jugador
+        let pJugadores = document.querySelector('.pJugadores');
+
+        // Agrego un evento de escucha para el evento 'change' en el select de número de jugadores
+        selectJugadores.addEventListener('change', function () {
+            // Obtén el número de jugadores seleccionado por el usuario
+            let numeroJugadores = selectJugadores.value;
+
+            // Elimino los inputs de nombre de jugador existentes
+            let inputsExistentes = document.querySelectorAll('input[name^="nombreJugador"]');
+            inputsExistentes.forEach(input => input.parentNode.remove());
+
+            // Creo un nuevo input de nombre de jugador para cada jugador y lo añado al contenedor
+            for (let i = 1; i <= numeroJugadores; i++) {
+                // Creo un contenedor para el input y la etiqueta
+                let contenedorInput = document.createElement('section');
+                contenedorInput.className = 'flex justify-center items-center gap-3';
+
+                let inputNombreJugador = document.createElement('input');
+                inputNombreJugador.type = 'text';
+                inputNombreJugador.name = 'nombreJugador' + i;
+                inputNombreJugador.id = 'nombreJugador' + i;
+                inputNombreJugador.placeholder = 'Nombre jugador ' + i;
+                inputNombreJugador.className = 'text-white placeholder:text-white bg-green-500 text-base md:text-xl px-2 py-2 rounded-lg';
+                // Hacer el input que no se pueda autocompletar
+                inputNombreJugador.autocomplete = 'off';
+                inputNombreJugador.required = true; // Hacer el input requerido
+
+                let etiquetaJugador = document.createElement('p');
+                etiquetaJugador.className = 'text-yellow-300 text-lg';
+                etiquetaJugador.textContent = 'Jug. ' + i;
+
+                contenedorInput.appendChild(inputNombreJugador);
+                contenedorInput.appendChild(etiquetaJugador);
+
+                pJugadores.appendChild(contenedorInput);
+            }
+        });
+
+
+        // EMPEZAR EL JUEGO-------------------------------------------------------------------------
+
+        // Obténgo el botón Empezar
+        let btnEmpezar = document.querySelector('#btnEmpezar');
+
+        // Agrego un evento de escucha para el evento 'click' en el botón Empezar
+        btnEmpezar.addEventListener('click', function () {
+
+            // Obténgo el número de jugadores
+            let numeroJugadores = selectJugadores.value;
+
+            // Obténgo los nombres de los jugadores
+            let nombresJugadores = [];
+            // Vacío el array de nombres de jugadores
+            nombresJugadores = [];
+            for (let i = 1; i <= numeroJugadores; i++) {
+                let nombreJugador = document.querySelector('#nombreJugador' + i).value;
+                nombresJugadores.push(nombreJugador);
+            }
+
+            // Si el input de nombre de jugador está vacío, no se puede empezar el juego
+            let inputsNombreJugador = document.querySelectorAll('input[name^="nombreJugador"]');
+            let inputsVacios = false;
+
+            // Compruebo si hay algún input vacío
+            inputsNombreJugador.forEach(input => {
+                // Si el input está vacío, cambio la bandera a true
+                if (input.value === '') inputsVacios = true;
+            });
+
+            // Si no hay inputs vacíos, se puede empezar el juego
+            if (!inputsVacios) {
+
+                // Oculto la sección de jugar
+                let seccionJugar = document.querySelector('#seccionJugar');
+                seccionJugar.style.display = 'none';
+
+                // Muestro la sección de cartones
+                let contenedorCartones = document.querySelector('#contenedorCartones');
+                contenedorCartones.style.display = 'flex';
+
+
+                // Muestro el número de bingo
+                let numBingo = document.querySelector('#numBingo');
+                numBingo.style.display = 'block';
+
+                // Muestro el botón para volver a jugar
+                let btnVolverAJugar = document.querySelector('#btnVolverAJugar');
+                btnVolverAJugar.style.display = 'block';
+
+                // Llamo a la función para crear los cartones
+                generarCartonBingo(nombresJugadores, numeroJugadores);
+
+            } else {
+                alert('Debes introducir un nombre para cada jugador');
+            }
+
+        });
+
+        // CREAR LOS CARTONES------------------------------------------------------------------------
+        function generarCartonBingo(nombresJugadores, numeroJugadores) {
+            // Obtén los números para los cartones de cada jugador
+            // Obtengo el contenedor de cartones
+            let contenedorCartones = document.querySelector("#contenedorCartones");
+            // Array con las URLs de las imágenes
+            let urlsImagenes = ['img/icon-snowman.png', 'img/icon-tree.png', 'img/icon-galleta.png', 'img/icon-botas.png'];
+            // Array con los colores de los cartones
+            let colors = ['#1580b4', '#15a45a', '#b3a21b', '#db2424'];
+
+
+            // Crear los cartones por cada jugador
+            for (let jugador = 0; jugador < numeroJugadores; jugador++) {
+                // Nombre del jugador del cartón actual
+                let nombreJugador = nombresJugadores[jugador];
+                // Array con los números del cartón
+                let numeros = [];
+                // Array con las cantidades de números por columna
+                let arrayCantidades = [2, 2, 2, 1, 2, 1, 2, 2, 1];
+                // Array con los números de las columnas
+                let columnas = [];
+                // Generar los números de las columnas
+                for (let i = 0; i < 9; i++) {
+                    // Generar números aleatorios para la columna actual
+                    let numerosAleatorios = generarNumerosAleatoriosUnicos(1 + i * 10, 9 + i * 10, arrayCantidades[i]);
+                    // Insertar espacios aleatorios en la columna actual
+                    insertarEspaciosAleatorios(numerosAleatorios, 1);
+                    // Añadir los números aleatorios a la lista de columnas
+                    columnas.push(numerosAleatorios);
+                }
+
+                // Rellenar el array de números con la secuencia correcta
+                // Recorrer las filas
+                for (let i = 0; i < 3; i++) {
+                    // Recorrer las columnas
+                    for (let j = 0; j < 9; j++) {
+                        // Añadir el número de la fila y la columna actual al array de números
+                        numeros.push(columnas[j][i]);
+                    }
+                }
+
+                // Crear el HTML del cartón
+                // Obtener la URL de la imagen correspondiente
+                let urlImagen = urlsImagenes[jugador];
+                let color = colors[jugador]; // Obtener el color correspondiente
+                let html = `<section class="carton w-[94%] md:w-[90%] md:h-[225px] xl:h-[225px] lg:w-[45%] p-2 md:p-2 mt-20 sweaterFont rounded-lg bg-[${color}] border-white border-2 relative shadow-lg flex justify-center items-center" style="background-color: ${color};" data-nombre-jugador="${nombreJugador}">`;
+                html += '<figure class="absolute -top-6 -right-3 md:-top-11 md:-right-6 xl:-right-9 xl:-top-14">';
+                html += `<img src="${urlImagen}" alt="" class="w-9 h-9 md:h-16 md:w-16 xl:h-20 xl:w-20" >`; // Usar la URL de imagen correspondiente
+                html += '</figure>';
+                html += '<section class="w-full h-full md:w-[99%] md:h-[97%] text-7xl md:text-8xl border-black border-1 md:border-2 grid grid-cols-9 grid-rows-3">';
+                numeros.forEach((numero) => {
+
+                    if (numero === undefined) {
+                        html += `<div class="numero bg-slate-300 border-2 border-black flex justify-center items-center text-xl md:text-4xl lg:text-3xl xl:text-5xl"></div>`;
+                    } else {
+                        html += `<div class="numero cursor-pointer bg-white border-2 border-black flex justify-center items-center text-xl md:text-4xl lg:text-3xl xl:text-5xl" data-numero="${numero}" data-id="${jugador}">${numero}</div>`;
+                    }
+                });
+                // Añadir el nombre del jugador
+                html += `<div class="absolute -top-10 left-3 gap-6 md:-top-16 md:left-6 text-2xl md:text-5xl text-[${color}] flex md:gap-10 items-center"> <p>${nombreJugador}</p></div>`;
+                // Añado el numero de bingo
+                html += `<div class="numBingoContainer hidden absolute -bottom-10 right-3 gap-6 md:-bottom-12 md:right-6 text-xl md:text-3xl text-[${color}] flex md:gap-10 items-center"> <p>Número cantado: <span class="numBingo"></span></p></div>`;
+                html += '</section>';
+
+                // Añadir el nuevo carton al contenedor de cartones
+                contenedorCartones.innerHTML += html;
+            }
+
+
+            generarYComprobar();
+
+        }
+
+
+        // FUNCIÓN PARA INSERTAR ESPACIOS ALEATORIOS EN LAS COLUMNAS----------------------------------
+        function insertarEspaciosAleatorios(array, cantidadEspacios) {
+            for (let i = 0; i < cantidadEspacios; i++) {
+                let indiceAleatorio = Math.floor(Math.random() * (array.length + 1));
+                array.splice(indiceAleatorio, 0, undefined);
+            }
+        }
+
+
+
+        // FUNCION PARA GENERAR NUMEROS Y COMRPOBAR SI HAY LINEA O BINGO---------------------------------
+        function generarYComprobar() {
+            // Obtén el elemento numBingo
+            let numBingo = document.querySelector('#numBingo');
+            // Hacemos una flag para saber si hay línea cantada
+            let lineaCantada = false;
+            // Hacemos una flag para saber si hay bingo
+            let bingo = false;
+
+            // Genera números y comprueba si hay línea o bingo cada medio segundo
+            let intervalId = setInterval(() => {
+                let numeroAleatorio = generarNumeroAleatorio();
+                numBingo.textContent = numeroAleatorio;
+                // Recuperamos numBingoContainer
+                let numBingoContainer = document.querySelectorAll('.numBingoContainer');
+                // Recuperamos la clase numBingo
+                let numBingoCartones = document.querySelectorAll('.numBingo');
+
+                // Si hay más de 2 jugadores añadimos el numero de bingo a los cartones
+                if (numBingoCartones.length > 2) {
+                    // Quitamos la clase hidden de todos los cartones
+                    numBingoContainer.forEach(carton => carton.classList.remove('hidden'));
+                    // Añadimos el numero de bingo a todos los cartones
+                    numBingoCartones.forEach(num => num.textContent = numeroAleatorio);
+                }
+
+                tacharNumero(numeroAleatorio);
+
+                // Obtén todos los cartones
+                let cartones = document.querySelectorAll('.carton');
+
+                let resultadoLinea = comprobarLinea(obtenerFilas(cartones));
+
+                if (!lineaCantada && numerosGenerados.size >= 5 && resultadoLinea) {
+                    // Obtener el aviso de línea
+                    let avisoLinea = document.querySelector('#avisoLinea');
+                    // Obtenemos la imagen del aviso de línea
+                    let imgAvisoLinea = document.querySelector('#imgAvisoLinea');
+                    // Obtenemos el nombre del jugador del aviso de línea
+                    let nombreAvisoLinea = document.querySelector('#nombreAvisoLinea');
+                    // Cambiamos la imagen del aviso de línea
+                    imgAvisoLinea.src = resultadoLinea.imagenCarton;
+                    // Cambiamos el nombre del jugador del aviso de línea
+                    nombreAvisoLinea.textContent = resultadoLinea.nombreJugador;
+                    // Cambiamos el color del nombre del jugador
+                    nombreAvisoLinea.style.color = resultadoLinea.colorCarton;
+                    // Cambiamos el color del borde del aviso de línea
+                    avisoLinea.style.borderColor = resultadoLinea.colorCarton;
+                    // Mostramos el aviso de línea
+                    avisoLinea.style.visibility = 'visible';
+                    lineaCantada = true; // Cambiamos la bandera para que no se muestre el aviso de línea más de una vez
+
+                    // Si el jugador no ha pulsado el botón en 2 segundos, oculta el aviso de línea
+                    let timeoutId = setTimeout(function () {
+                        avisoLinea.style.visibility = 'hidden';
+                    }, 3000);
+                }
+
+
+                let resultadoBingo = comprobarBingo();
+                if (numerosGenerados.size >= 15 && resultadoBingo) {
+                    // Obtener el aviso de bingo
+                    let avisoBingo = document.querySelector('#avisoBingo');
+                    // Obtenemos la imagen del aviso de bingo
+                    let imgAvisoBingo = document.querySelector('#imgAvisoBingo');
+                    // Obtenemos el nombre del jugador del aviso de bingo
+                    let nombreAvisoBingo = document.querySelector('#nombreAvisoBingo');
+                    // Recuperamos la imagen del jugador que ha cantado bingo
+                    imgAvisoBingo.src = resultadoBingo.imagenCarton;
+                    // Cambiamos el nombre del jugador del aviso de bingo
+                    nombreAvisoBingo.textContent = resultadoBingo.nombreJugador;
+                    // Cambiamos el color del nombre del jugador
+                    nombreAvisoBingo.style.color = resultadoBingo.colorCarton;
+                    // Cambiamos el color del borde del aviso de bingo
+                    avisoBingo.style.borderColor = resultadoBingo.colorCarton;
+                    // Mostramos el aviso de bingo
+                    avisoBingo.style.visibility = 'visible';
+                    // Cambiamos la bandera para que no se muestre el aviso de bingo más de una vez
+                    bingo = true; // Si hay bingo, sale del bucle
+                    clearInterval(intervalId); // Detiene la generación de números
+                    // Obtenemos el botón para volver a la página de inicio
+                    let btnVolverAInicioBingo = document.querySelector('#btnVolverAInicioBingo');
+                    // Si el usuario pincha en el botón de volver a la página de inicio del bingo, vuelve a la página de inicio
+                    btnVolverAInicioBingo.addEventListener('click', function () {
+                        window.location.reload();
+                    });
+
+                }
+
+                // Obtengo el botón para volver a jugar
+                let btnVolverAJugar = document.querySelector('#btnVolverAJugar');
+                // Si el usuario pincha en el botón de volver a jugar, vuelve a la página de inicio
+                btnVolverAJugar.addEventListener('click', function () {
+                    window.location.reload();
+                });
+              
+            }, 3000);
+        }
+
+        // FUNCIÓN PARA TACHAR NÚMEROS-----------------------------------------------------------------------------
+        let recuentoTachados = {};
+
+        function tacharNumero(numero) {
+            // Selecciona todos los elementos de número en el DOM
+            let elementosNumero = document.querySelectorAll('.numero');
+
+            // Recorre todos los elementos de número
+            elementosNumero.forEach((elemento) => {
+                // Comprueba si el número del elemento coincide con el número a tachar
+                if (parseInt(elemento.textContent) === numero) {
+                    // Si coincide, añade la clase para tachar el número
+                    elemento.classList.add('line-through');
+
+                    // Añade el número al recuento de tachados
+                    let idCarton = elemento.parentElement.dataset.id;
+                    recuentoTachados[idCarton] = (recuentoTachados[idCarton] || 0) + 1;
+                }
+            });
+        }
+
+
+        // FUNCIÓN PARA OBTENER LAS FILAS DE LOS CARTONES--------------------------------------------------------
+        function obtenerFilas(cartones) {
+            let filas = [];
+            for (let i = 0; i < cartones.length; i++) {
+                // Obtén el cartón actual
+                let carton = cartones[i];
+                // Obtén todos los números del cartón
+                let numeros = carton.querySelectorAll('.numero');
+                // Divide los números en filas y añádelos al array de filas
+                for (let j = 0; j < numeros.length; j += 9) {
+                    let fila = Array.from(numeros).slice(j, j + 9);
+                    filas.push({ fila, carton });
+                }
+            }
+            return filas;
+        }
+
+        // FUNCIÓN PARA COMPROBAR SI HAY LÍNEA--------------------------------------------------------------------
+        function comprobarLinea(filas) {
+            // Recorre cada fila de cada cartón
+            for (let i = 0; i < filas.length; i++) {
+                // Obtén la fila y el cartón actuales
+                let { fila, carton } = filas[i];
+                // Filtra los espacios en blanco
+                let numerosSinEspacios = fila.filter(numero => numero.textContent !== '');
+                // Comprueba si todos los números de la fila que no son espacios en blanco están tachados
+                if (numerosSinEspacios.every(numero => numero.classList.contains('line-through'))) {
+                    // Si todos los números de la fila que no son espacios en blanco están tachados, hay línea
+                    let nombreJugador = carton.dataset.nombreJugador; // Obtén el nombre del jugador del atributo de datos
+                    let colorCarton = carton.style.backgroundColor; // Obtén el color del cartón
+                    let imagenCarton = carton.querySelector('img').src; // Obtén la imagen del cartón
+                    // Devuelve el nombre del jugador, el color del cartón y la imagen del cartón
+                    return {
+                        nombreJugador: nombreJugador,
+                        colorCarton: colorCarton,
+                        imagenCarton: imagenCarton
+                    };
+                }
+            }
+            // Si no hay ninguna fila con todos los números tachados, no hay línea
+            return false;
+        }
+
+        function comprobarBingo() {
+            // Obtén todos los cartones
+            let cartones = document.querySelectorAll('.carton');
+            for (let i = 0; i < cartones.length; i++) {
+                // Obtén el cartón actual
+                let carton = cartones[i];
+                // Obtén todos los números del cartón
+                let numeros = carton.querySelectorAll('.numero');
+                // Filtra los espacios en blanco
+                let numerosSinEspacios = Array.from(numeros).filter(numero => numero.textContent !== '');
+                // Comprueba si todos los números del cartón que no son espacios en blanco están tachados
+                if (numerosSinEspacios.every(numero => numero.classList.contains('line-through'))) {
+                    // Si todos los números del cartón que no son espacios en blanco están tachados, hay bingo
+                    let nombreJugador = carton.dataset.nombreJugador; // Obtén el nombre del jugador del atributo de datos
+                    let colorCarton = carton.style.backgroundColor; // Obtén el color del cartón
+                    let imagenCarton = carton.querySelector('img').src; // Obtén la imagen del cartón
+                    // Devuelve el nombre del jugador, el color del cartón y la imagen del cartón
+                    return {
+                        nombreJugador: nombreJugador,
+                        colorCarton: colorCarton,
+                        imagenCarton: imagenCarton
+                    };
+                }
+            }
+            // Si no hay ningún cartón con todos los números tachados, no hay bingo
+            return false;
+        }
+
+        //  FUNCIÓN PARA GENERAR NÚMEROS ALEATORIOS ÚNICOS------------------------------------------------------
+        function generarNumerosAleatoriosUnicos(minimo, maximo, cantidad) {
+            // Array para almacenar los números generados
+            let numeros = [];
+            // Generar la cantidad de números que se pide con un minimo y un maximo
+            while (numeros.length < cantidad) {
+                // Generar un número aleatorio entre el minimo y el maximo
+                let numero = Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+                // Si el número no está en el array, añadirlo
+                if (!numeros.includes(numero)) {
+                    numeros.push(numero);
+                }
+            }
+            // Devolver el array de números
+            return numeros;
+        }
+
+
+
+        // GENERAR NÚMERO ALEATORIO--------------------------------------------------------------------------
+        let numerosGenerados = new Set();
+
+        function generarNumeroAleatorio() {
+            let numero;
+            // Generar números aleatorios hasta que se genere uno que no esté en el set
+            do {
+                numero = Math.floor(Math.random() * 90) + 1; // Generar números del 1 al 90
+            } while (numerosGenerados.has(numero));
+            numerosGenerados.add(numero);
+            return numero;
+        }
+
+
+
+        // FUNCIÓN PARA REINICIAR EL JUEGO-------------------------------------------------------------------
+        function reiniciarJuego() {
+
+            // Limpiar los cartones
+            let contenedorCartones = document.querySelector("#contenedorCartones");
+            // Eliminar todos los cartones
+            // Mientras haya un primer hijo, elimínalo
+            while (contenedorCartones.firstChild) {
+                contenedorCartones.removeChild(contenedorCartones.firstChild);
+            }
+
+            // Limpiar los nombres de los jugadores
+            let inputsNombreJugador = document.querySelectorAll('input[name^="nombreJugador"]');
+            inputsNombreJugador.forEach(input => {
+                input.value = '';
+            });
+
+            // Limpiar el número de bingo
+            let numBingo = document.querySelector('#numBingo');
+            numBingo.textContent = '';
+
+            //Reiniciar el select de número de jugadores
+            let selectJugadores = document.querySelector('#selectJugadores');
+            selectJugadores.value = 1;
+
+            // Limpia el contenedor de jugadores
+            let pJugadores = document.querySelector('.pJugadores');
+            // Elimina todos menos el primer hijo
+            while (pJugadores.children.length > 2) {
+                pJugadores.removeChild(pJugadores.lastChild);
+            }
+            // Limpiar los números generados
+            numerosGenerados.clear();
+
+            // Limpiar el recuento de números tachados
+            recuentoTachados = {};
+
+            // Reiniciar la bandera de línea cantada
+            lineaCantada = false;
+
+            // Reiniciar la bandera de juego en curso
+            juegoEnCurso = false;
+
+            // Reiniciar la bandera de bingo
+            bingo = false;
+
+        }
+
+
+        // FUNCIÓN PARA VOLVER A JUGAR---------------------------------------------------------------------
+        function volverAJugar() {
+            // Llama a la función para reiniciar el juego
+            reiniciarJuego();
+
+            // Muestra el menú para jugar
+            mostrarMenuJugar();
+        }
+
+
+
+
+        // FUNCIÓN PARA MOSTRAR EL MENÚ PARA JUGAR DE NUEVO---------------------------------------------
+        function mostrarMenuJugar() {
+
+            // Oculto la sección de cartones
+            let contenedorCartones = document.querySelector('#contenedorCartones');
+            contenedorCartones.style.display = 'none';
+
+            // Oculto el número de bingo
+            let numBingo = document.querySelector('#numBingo');
+            numBingo.style.display = 'none';
+
+            // Oculto el botón para volver a jugar
+            let btnVolverAJugar = document.querySelector('#btnVolverAJugar');
+            btnVolverAJugar.style.display = 'none';
+
+            // Muestro la sección de jugar
+            let seccionJugar = document.querySelector('#seccionJugar');
+            seccionJugar.style.display = 'flex';
+        }
+
+
+
+        // MENU DESPLEGABLE DE LOS MÓVILES------------------------------------------------------------
+        document.addEventListener("DOMContentLoaded", function () {
+            // ANIMACIÓN MENÚ DESPLEGABLE DE LOS MÓVILES
+            const menuToggle = document.getElementById("menuToggle");
+            const closeButton = document.getElementById("closeButton");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+
+            function toggleMenu() {
+                menuToggle.classList.toggle("active");
+                mobileMenu.style.right = "0";
+            }
+
+            function cerrarMenu() {
+                menuToggle.classList.remove("active");
+                mobileMenu.style.right = "-100%";
+            }
+
+            if (menuToggle) {
+                menuToggle.addEventListener("click", toggleMenu);
+            }
+
+            if (closeButton) {
+                closeButton.addEventListener("click", cerrarMenu);
+            }
+        });
+
+
+        // EFECTO DE NIEVE EN LA PÁGINA----------------------------------------------------------------
+
+        (function () {
+
+            var COUNT = 250;
+            var masthead = document.querySelector('.sky');
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
+            var width = masthead.clientWidth;
+            var height = masthead.clientHeight;
+            var i = 0;
+            var active = false;
+
+            // Crear un observador de mutaciones
+            var observer = new MutationObserver(function (mutations) {
+                // Cuando el DOM cambia, recalcula el ancho y la altura
+                onResize();
+            });
+
+            // Configurar el observador para observar todo el documento
+            observer.observe(document.body, { childList: true, subtree: true });
+
+            // Función para recalcular el ancho y la altura
+            function onResize() {
+                width = document.body.scrollWidth;
+                height = document.body.scrollHeight;
+                canvas.width = width;
+                canvas.height = height;
+                ctx.fillStyle = '#FFF';
+
+                var wasActive = active;
+                active = width > 600;
+
+                if (!wasActive && active)
+                    requestAnimFrame(update);
+            }
+
+            var Snowflake = function () {
+                this.x = 0;
+                this.y = 0;
+                this.vy = 0;
+                this.vx = 0;
+                this.r = 0;
+
+                this.reset();
+            }
+
+            Snowflake.prototype.reset = function () {
+                this.x = Math.random() * width;
+                this.y = Math.random() * -height;
+                this.vy = 1 + Math.random() * 3;
+                this.vx = 0.5 - Math.random();
+                this.r = 1 + Math.random() * 2;
+                this.o = 0.5 + Math.random() * 0.5;
+            }
+
+            canvas.style.position = 'absolute';
+            canvas.style.left = canvas.style.top = '0';
+
+            var snowflakes = [], snowflake;
+            for (i = 0; i < COUNT; i++) {
+                snowflake = new Snowflake();
+                snowflake.reset();
+                snowflakes.push(snowflake);
+            }
+
+            // Función para actualizar la animación
+            function update() {
+
+                ctx.clearRect(0, 0, width, height);
+
+                if (!active)
+                    return;
+
+                for (i = 0; i < COUNT; i++) {
+                    snowflake = snowflakes[i];
+                    snowflake.y += snowflake.vy;
+                    snowflake.x += snowflake.vx;
+
+                    ctx.globalAlpha = snowflake.o;
+                    ctx.beginPath();
+                    ctx.arc(snowflake.x, snowflake.y, snowflake.r, 0, Math.PI * 2, false);
+                    ctx.closePath();
+                    ctx.fill();
+
+                    if (snowflake.y > height) {
+                        snowflake.reset();
+                    }
+                }
+
+                requestAnimFrame(update);
+            }
+
+            window.requestAnimFrame = (function () {
+                return window.requestAnimationFrame ||
+                    window.webkitRequestAnimationFrame ||
+                    window.mozRequestAnimationFrame ||
+                    function (callback) {
+                        window.setTimeout(callback, 1000 / 60);
+                    };
+            })();
+
+            onResize();
+            window.addEventListener('resize', onResize, false);
+
+            masthead.appendChild(canvas);
+            canvas.style.zIndex = '-10';
+        })();
+
+    </script>
+</body>
+
+</html>
