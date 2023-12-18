@@ -251,85 +251,27 @@
     <script>
 
         // Añadimos los apodos de los números del bingo más famosos
-        let apodos = [
-            {
-                numero: 1,
-                apodo: 'El galán'
-            },
-            {
-                numero: 2,
-                apodo: 'El patito'
-            },
-            {
-                numero: 11,
-                apodo: 'Los mocos de Pablo'
-
-            },
-            {
-                numero: 15,
-                apodo: 'La niña bonita'
-            },
-            {
-                numero: 13,
-                apodo: 'La mala pata'
-            },
-            {
-                numero: 22,
-                apodo: 'Los dos patitos'
-            },
-            {
-                numero: 88,
-                apodo: 'Las gordas'
-            },
-            {
-                numero: 33,
-                apodo: 'La edad de Cristo'
-            },
-            {
-                numero: 90,
-                apodo: 'El abuelo'
-            },
-            {
-                numero: 48,
-                apodo: 'El borrego'
-            },
-            {
-                numero: 21,
-                apodo: '¡uno!'
-            },
-            {
-                numero: 17,
-                apodo: 'La desgracia'
-            },
-            {
-                numero: 14,
-                apodo: 'El borracho'
-            },
-            {
-                numero: 25,
-                apodo: 'Navidad'
-            },
-            {
-                numero: 4,
-                apodo: 'La cama'
-            },
-            {
-                numero: 66,
-                apodo: 'Las 2 embarazadas'
-            },
-            {
-                numero: 19,
-                apodo: 'El correo para Cuba'
-            },
-            {
-                numero: 44,
-                apodo: 'cuacaraca-cuacara'
-            },
-            {
-                numero: 55,
-                apodo: 'Los civiles'
-            }
-        ];
+        let apodos = new Map([
+            [1, 'El galán'],
+            [2, 'El patito'],
+            [11, 'Los mocos de Pablo'],
+            [15, 'La niña bonita'],
+            [13, 'La mala pata'],
+            [22, 'Los dos patitos'],
+            [88, 'Las gordas'],
+            [33, 'La edad de Cristo'],
+            [90, 'El abuelo'],
+            [48, 'El borrego'],
+            [21, '¡uno!'],
+            [17, 'La desgracia'],
+            [14, 'El borracho'],
+            [25, 'Navidad'],
+            [4, 'La cama'],
+            [66, 'Las 2 embarazadas'],
+            [19, 'El correo para Cuba'],
+            [44, 'cuacaraca-cuacara'],
+            [55, 'Los civiles']
+        ]);
         // CREAR INPUTS DE NOMBRE DE JUGADORES------------------------------------------------------
 
         // Obténgo el elemento select donde el usuario selecciona el número de jugadores
@@ -561,11 +503,11 @@
                 let apodoNumero = document.querySelector('#apodoNumero');
                 apodoNumero.textContent = '...';
 
-                apodos.forEach(apodo => {
-                    if (apodo.numero === numeroAleatorio) {
-                        apodoNumero.textContent = apodo.apodo; // Establece el apodo si hay coincidencia
-                    }
-                });
+                // Si el número tiene apodo, lo mostramos
+                if (apodos.has(numeroAleatorio)) {
+                    apodoNumero.textContent = apodos.get(numeroAleatorio);
+                }
+                
                 numBingo.textContent = numeroAleatorio;
                 // Recuperamos numBingoContainer
                 let numBingoContainer = document.querySelectorAll('.numBingoContainer');
