@@ -144,7 +144,7 @@
 
         <section
             class="flex flex-col justify-center items-center gap-5 md:gap-8 md:mb-6 max-w-2xl m-auto sweaterFont text-white">
-            <p id="numBingo" class="hidden text-center text-6xl md:text-8xl">Bingo</p>
+            <p id="numBingo" class="hidden text-center text-6xl md:text-8xl"></p>
             <button id="btnVolverAJugar"
                 class=" hidden bg-red-500 hover:bg-red-600 transition-all tracking-wider px-3 py-2 border-2 border-black rounded-lg text-lg md:text-2xl shadow-2xl shadow-black hover:shadow-3xl">
                 Volver a jugar
@@ -156,7 +156,7 @@
 
 
             <section id="avisoLinea"
-                class="invisible absolute flex flex-col justify-center items-center inset-0 m-auto z-10 border-4 border-blue-500 max-w-lg h-[400px] rounded-lg"
+                class="invisible absolute flex flex-col justify-center items-center inset-0 m-auto z-10 border-4 border-blue-500 max-w-[305px] md:max-w-lg h-[400px] rounded-lg"
                 style="background-image: url(/img/bkg2.png);">
                 <article class="z-10 flex flex-col justify-center items-center text-white text-3xl sweaterFont gap-5">
                     <figure>
@@ -170,7 +170,7 @@
             </section>
 
             <section id="avisoBingo"
-                class="invisible absolute flex flex-col justify-center items-center inset-0 m-auto z-10 border-4 border-blue-500 max-w-lg h-[400px] rounded-lg"
+                class="invisible absolute flex flex-col justify-center items-center inset-0 m-auto z-10 border-4 border-blue-500 max-w-[305px] md:max-w-lg h-[400px] rounded-lg"
                 style="background-image: url(/img/bkg2.png);">
                 <article class="z-10 flex flex-col justify-center items-center text-white text-3xl sweaterFont gap-2">
                     <figure>
@@ -388,7 +388,7 @@
                 let color = colors[jugador]; // Obtener el color correspondiente
                 let html = `<section class="carton w-[94%] md:w-[90%] md:h-[225px] xl:h-[225px] lg:w-[45%] p-2 md:p-2 mt-20 sweaterFont rounded-lg bg-[${color}] border-white border-2 relative shadow-lg flex justify-center items-center" style="background-color: ${color};" data-nombre-jugador="${nombreJugador}">`;
                 html += '<figure class="absolute -top-6 -right-3 md:-top-11 md:-right-6 xl:-right-9 xl:-top-14">';
-                html += `<img src="${urlImagen}" alt="" class="w-9 h-9 md:h-16 md:w-16 xl:h-20 xl:w-20" >`; // Usar la URL de imagen correspondiente
+                html += `<img src="${urlImagen}" alt="" class="w-9 h-9 md:h-16 md:w-16 xl:h-20 xl:w-20" data-id="${urlImagen}">`; // Usar la URL de imagen correspondiente
                 html += '</figure>';
                 html += '<section class="w-full h-full md:w-[99%] md:h-[97%] text-7xl md:text-8xl border-black border-1 md:border-2 grid grid-cols-9 grid-rows-3">';
                 numeros.forEach((numero) => {
@@ -410,6 +410,9 @@
             }
 
 
+            // LLamamos a la función preparadosListosYa
+            preparadosListosYa();
+            // Llamamos a la función generarYComprobar para generar los números y comprobar si hay línea o bingo
             generarYComprobar();
 
         }
@@ -424,6 +427,21 @@
         }
 
 
+        // FUNCIÓN PARA MOSTRAR PREPARADOS, LISTOS, YA!-------------------------------------------------
+        function preparadosListosYa(){
+            // Obtén el elemento numBingo
+            let numBingo = document.querySelector('#numBingo');
+
+            // Mostramos el mensaje de preparados, listos, ya!
+            numBingo.textContent = 'Preparados';
+            setTimeout(() => {
+                numBingo.textContent = 'Listos';
+            }, 1000);
+            setTimeout(() => {
+                numBingo.textContent = 'Ya!';
+            }, 2000);
+            
+        }
 
         // FUNCION PARA GENERAR NUMEROS Y COMRPOBAR SI HAY LINEA O BINGO---------------------------------
         function generarYComprobar() {
@@ -433,6 +451,7 @@
             let lineaCantada = false;
             // Hacemos una flag para saber si hay bingo
             let bingo = false;
+
 
             // Genera números y comprueba si hay línea o bingo cada medio segundo
             let intervalId = setInterval(() => {
@@ -529,7 +548,7 @@
                     window.location.reload();
                 });
 
-            }, 3000);
+            }, 200);
         }
 
         // FUNCIÓN PARA TACHAR NÚMEROS-----------------------------------------------------------------------------
