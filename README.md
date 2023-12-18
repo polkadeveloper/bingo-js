@@ -4,6 +4,10 @@
 Este proyecto te permite disfrutar de una experiencia festiva con un juego de bingo navideño que admite hasta 4 jugadores en local. ¡Genera tus propios cartones navideños y compite por conseguir un bingo en esta temporada navideña!
 
 ![image](https://github.com/alvarob27/bingo-js/assets/103132738/75913bd3-a7f4-4ea0-a4df-8edc53b87406)
+![image](https://github.com/alvarob27/bingo-js/assets/103132738/611e43ef-4e64-4ed5-97c5-72310bf29a89)
+![image](https://github.com/alvarob27/bingo-js/assets/103132738/aaf8ccda-5f44-4df2-b67a-8be33520f82e)
+
+
 
 ## Características
 
