@@ -400,7 +400,7 @@
                     }
                 });
                 // Añadir el nombre del jugador
-                html += `<div class="absolute -top-10 left-3 gap-6 md:-top-16 md:left-6 text-2xl md:text-5xl text-[${color}] flex md:gap-10 items-center"> <p>${nombreJugador}</p></div>`;
+                html += `<div class="absolute -top-10 left-3 gap-6 md:-top-16 md:left-6 text-2xl md:text-5xl text-[${color}] flex md:gap-10 items-center"><p data-nombreJugador="${nombreJugador}">${nombreJugador}</p></div>`;
                 // Añado el numero de bingo
                 html += `<div class="numBingoContainer hidden absolute -bottom-10 right-3 gap-6 md:-bottom-12 md:right-6 text-xl md:text-3xl text-[${color}] flex md:gap-10 items-center"> <p>Número cantado: <span class="numBingo"></span></p></div>`;
                 html += '</section>';
@@ -465,6 +465,10 @@
                     let imgAvisoLinea = document.querySelector('#imgAvisoLinea');
                     // Obtenemos el nombre del jugador del aviso de línea
                     let nombreAvisoLinea = document.querySelector('#nombreAvisoLinea');
+                    // Obtenemos el elemento nombreJugador del cartón del dom por el data-nombreJugador
+                    let nombreJugador = document.querySelector(`[data-nombreJugador="${resultadoLinea.nombreJugador}"]`);
+                    // Concatenamos al nombre del jugador la palabra línea
+                    nombreJugador.textContent += ' LÍNEA';
                     // Cambiamos la imagen del aviso de línea
                     imgAvisoLinea.src = resultadoLinea.imagenCarton;
                     // Cambiamos el nombre del jugador del aviso de línea
@@ -492,6 +496,10 @@
                     let imgAvisoBingo = document.querySelector('#imgAvisoBingo');
                     // Obtenemos el nombre del jugador del aviso de bingo
                     let nombreAvisoBingo = document.querySelector('#nombreAvisoBingo');
+                    // Obtenemos el elemento nombreJugador del cartón del dom por el data-nombreJugador
+                    let nombreJugador = document.querySelector(`[data-nombreJugador="${resultadoBingo.nombreJugador}"]`);
+                    // Concatenamos al nombre del jugador la palabra bingo
+                    nombreJugador.textContent += ' BINGO';
                     // Recuperamos la imagen del jugador que ha cantado bingo
                     imgAvisoBingo.src = resultadoBingo.imagenCarton;
                     // Cambiamos el nombre del jugador del aviso de bingo
