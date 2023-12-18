@@ -122,13 +122,16 @@
                 <section class="pJugadores flex flex-col justify-center items-center gap-5">
                     <p>2. Escoge el nombre de cada jugador</p>
                     <section id="contenedorInputs" class="flex justify-center items-center gap-3">
-                        <input type="text" name="nombreJugador1" id="nombreJugador1" placeholder="Nombre jugador 1"
+                        <input autocomplete="off" type="text" name="nombreJugador1" id="nombreJugador1"
+                            placeholder="Nombre jugador 1"
                             class="text-white placeholder:text-white bg-green-500 text-base md:text-xl px-2 py-2 rounded-lg">
                         <p class="text-yellow-300 text-lg">Jug. 1</p>
                     </section>
                 </section>
 
-                <p class="text-left">3. ¡A jugar!</p>
+                <p class="text-left">3. Santa cantará los apodos más famosos 🎅</p>
+
+                <p class="text-left">4. ¡A jugar!</p>
 
             </article>
 
@@ -143,12 +146,23 @@
 
 
         <section
-            class="flex flex-col justify-center items-center gap-5 md:gap-8 md:mb-6 max-w-2xl m-auto sweaterFont text-white">
-            <p id="numBingo" class="hidden text-center text-6xl md:text-8xl"></p>
-            <button id="btnVolverAJugar"
-                class=" hidden bg-red-500 hover:bg-red-600 transition-all tracking-wider px-3 py-2 border-2 border-black rounded-lg text-lg md:text-2xl shadow-2xl shadow-black hover:shadow-3xl">
-                Volver a jugar
-            </button>
+            class="flex flex-col md:flex-row justify-center items-center gap-5 md:gap-10 lg:gap-20 md:mb-6 sweaterFont text-white">
+            <!-- Sección con el número de bingo y el botón para volver a jugar -->
+            <section class="flex flex-col gap-10">
+                <p id="numBingo" class="hidden text-center text-7xl lg:text-8xl"></p>
+                <button id="btnVolverAJugar"
+                    class=" hidden bg-red-500 hover:bg-red-600 transition-all tracking-wider px-3 py-2 border-2 border-black rounded-lg text-lg md:text-2xl shadow-2xl shadow-black hover:shadow-3xl">
+                    Volver a jugar
+                </button>
+            </section>
+
+            <!-- Figurita santaclaus -->
+            <figure id="figuritaSanta" class="hidden relative w-96 justify-center items-center">
+                <img src="img/santa-dialog.png" alt="Imagen de Santa Claus" class="w-72 h-80 z-0">
+                <p id="apodoNumero" class="absolute top-11 left-[85px] text-black font-bold p-2 z-10">...</p>
+            </figure>
+
+
         </section>
 
         <section id="contenedorCartones"
@@ -186,7 +200,6 @@
                     </button>
                 </article>
             </section>
-
 
         </section>
 
@@ -237,6 +250,86 @@
 
     <script>
 
+        // Añadimos los apodos de los números del bingo más famosos
+        let apodos = [
+            {
+                numero: 1,
+                apodo: 'El galán'
+            },
+            {
+                numero: 2,
+                apodo: 'El patito'
+            },
+            {
+                numero: 11,
+                apodo: 'Los mocos de Pablo'
+
+            },
+            {
+                numero: 15,
+                apodo: 'La niña bonita'
+            },
+            {
+                numero: 13,
+                apodo: 'La mala pata'
+            },
+            {
+                numero: 22,
+                apodo: 'Los dos patitos'
+            },
+            {
+                numero: 88,
+                apodo: 'Las gordas'
+            },
+            {
+                numero: 33,
+                apodo: 'La edad de Cristo'
+            },
+            {
+                numero: 90,
+                apodo: 'El abuelo'
+            },
+            {
+                numero: 48,
+                apodo: 'El borrego'
+            },
+            {
+                numero: 21,
+                apodo: '¡uno!'
+            },
+            {
+                numero: 17,
+                apodo: 'La desgracia'
+            },
+            {
+                numero: 14,
+                apodo: 'El borracho'
+            },
+            {
+                numero: 25,
+                apodo: 'Navidad'
+            },
+            {
+                numero: 4,
+                apodo: 'La cama'
+            },
+            {
+                numero: 66,
+                apodo: 'Las 2 embarazadas'
+            },
+            {
+                numero: 19,
+                apodo: 'El correo para Cuba'
+            },
+            {
+                numero: 44,
+                apodo: 'cuacaraca-cuacara'
+            },
+            {
+                numero: 55,
+                apodo: 'Los civiles'
+            }
+        ];
         // CREAR INPUTS DE NOMBRE DE JUGADORES------------------------------------------------------
 
         // Obténgo el elemento select donde el usuario selecciona el número de jugadores
@@ -408,6 +501,11 @@
 
                 // Añadir el nuevo carton al contenedor de cartones
                 contenedorCartones.innerHTML += html;
+
+                // Hacemos aparecer a la figurita de santa
+                let figuritaSanta = document.querySelector('#figuritaSanta');
+                figuritaSanta.classList.remove('hidden');
+                figuritaSanta.classList.add('flex');
             }
 
 
@@ -429,19 +527,21 @@
 
 
         // FUNCIÓN PARA MOSTRAR PREPARADOS, LISTOS, YA!-------------------------------------------------
-        function preparadosListosYa(){
+        function preparadosListosYa() {
             // Obtén el elemento numBingo
             let numBingo = document.querySelector('#numBingo');
 
             // Mostramos el mensaje de preparados, listos, ya!
-            numBingo.textContent = 'Preparados';
+            numBingo.textContent = '3';
             setTimeout(() => {
-                numBingo.textContent = 'Listos';
-            }, 1000);
+                numBingo.textContent = '2';
+            }, 750);
             setTimeout(() => {
-                numBingo.textContent = 'Ya!';
-            }, 2000);
-            
+                numBingo.textContent = '1';
+            }, 1500);
+            setTimeout(() => {
+                numBingo.textContent = '¡YA!';
+            }, 2250);
         }
 
         // FUNCION PARA GENERAR NUMEROS Y COMRPOBAR SI HAY LINEA O BINGO---------------------------------
@@ -457,19 +557,28 @@
             // Genera números y comprueba si hay línea o bingo cada medio segundo
             let intervalId = setInterval(() => {
                 let numeroAleatorio = generarNumeroAleatorio();
+                // Recuperamos el apodo del numero
+                let apodoNumero = document.querySelector('#apodoNumero');
+                apodoNumero.textContent = '...';
+
+                apodos.forEach(apodo => {
+                    if (apodo.numero === numeroAleatorio) {
+                        apodoNumero.textContent = apodo.apodo; // Establece el apodo si hay coincidencia
+                    }
+                });
                 numBingo.textContent = numeroAleatorio;
                 // Recuperamos numBingoContainer
                 let numBingoContainer = document.querySelectorAll('.numBingoContainer');
                 // Recuperamos la clase numBingo
                 let numBingoCartones = document.querySelectorAll('.numBingo');
 
-                // Si hay más de 2 jugadores añadimos el numero de bingo a los cartones
-                if (numBingoCartones.length > 2) {
-                    // Quitamos la clase hidden de todos los cartones
-                    numBingoContainer.forEach(carton => carton.classList.remove('hidden'));
-                    // Añadimos el numero de bingo a todos los cartones
-                    numBingoCartones.forEach(num => num.textContent = numeroAleatorio);
-                }
+
+
+                // Quitamos la clase hidden de todos los cartones
+                numBingoContainer.forEach(carton => carton.classList.remove('hidden'));
+                // Añadimos el numero de bingo a todos los cartones
+                numBingoCartones.forEach(num => num.textContent = numeroAleatorio);
+
 
                 tacharNumero(numeroAleatorio);
 
@@ -504,7 +613,7 @@
                     // Si el jugador no ha pulsado el botón en 2 segundos, oculta el aviso de línea
                     let timeoutId = setTimeout(function () {
                         avisoLinea.style.visibility = 'hidden';
-                    }, 3000);
+                    }, 1000);
                 }
 
 
@@ -617,6 +726,8 @@
             return false;
         }
 
+
+        // FUNCIÓN PARA COMPROBAR SI HAY BINGO -----------------------------------------------------------------------
         function comprobarBingo() {
             // Obtén todos los cartones
             let cartones = document.querySelectorAll('.carton');
@@ -660,7 +771,7 @@
             }
             // Devolver el array de números ordenado de menor a mayor
             return numeros.sort((a, b) => a - b);
-            
+
         }
 
 
@@ -760,35 +871,6 @@
             let seccionJugar = document.querySelector('#seccionJugar');
             seccionJugar.style.display = 'flex';
         }
-
-
-
-        // MENU DESPLEGABLE DE LOS MÓVILES------------------------------------------------------------
-        document.addEventListener("DOMContentLoaded", function () {
-            // ANIMACIÓN MENÚ DESPLEGABLE DE LOS MÓVILES
-            const menuToggle = document.getElementById("menuToggle");
-            const closeButton = document.getElementById("closeButton");
-            const mobileMenu = document.getElementById("mobileMenu");
-
-
-            function toggleMenu() {
-                menuToggle.classList.toggle("active");
-                mobileMenu.style.right = "0";
-            }
-
-            function cerrarMenu() {
-                menuToggle.classList.remove("active");
-                mobileMenu.style.right = "-100%";
-            }
-
-            if (menuToggle) {
-                menuToggle.addEventListener("click", toggleMenu);
-            }
-
-            if (closeButton) {
-                closeButton.addEventListener("click", cerrarMenu);
-            }
-        });
 
 
         // EFECTO DE NIEVE EN LA PÁGINA----------------------------------------------------------------
